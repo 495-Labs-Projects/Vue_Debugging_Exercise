@@ -26,9 +26,6 @@ $(document).on('ready', function(){
       name: String,
       completed: Boolean
     },    
-    beforeDestroy: function(){
-      console.log('bye');
-    },
     // Behaviors associated with this component
     methods: {
       toggle_complete: function (chore){
@@ -47,12 +44,6 @@ $(document).on('ready', function(){
     },
     mounted: function(){
       this.get_chores();
-    },
-      beforeUpdate() {
-    console.log(this.counter) // Logs the counter value every second, before the DOM updates.
-  },
-    beforeDestroy: function(){
-      console.log('bye');
     },
     methods: {
       get_chores: function(){
