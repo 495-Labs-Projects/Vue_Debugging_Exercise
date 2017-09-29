@@ -1,4 +1,16 @@
+var init;
+
+var initialize = function(){
+  if (init){
+    init();
+  }
+}
+
 $(document).on('ready', function(){
+
+    init = function()
+    {
+        // blah?
 
     // General template function for running AJAX calls through Vue.JS
   run_ajax = function(method, data, link, callback){
@@ -8,7 +20,6 @@ $(document).on('ready', function(){
       url: link,
       success: function(res) {
         callback(res);
-        vm.$forceUpdate();
       },
       error: function(res) {
         that.errors = res.responseJSON.errors
@@ -22,9 +33,7 @@ $(document).on('ready', function(){
 
     // Passed elements to the component from the Vue instance
     props: {
-      chore: Object,
-      name: String,
-      completed: Boolean
+      chore: Object
     },    
     // Behaviors associated with this component
     methods: {
@@ -50,5 +59,9 @@ $(document).on('ready', function(){
       },      
     } 
   })
+    
+  }
+
+  init()
 
 })
