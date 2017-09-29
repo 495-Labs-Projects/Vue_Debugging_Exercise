@@ -22,9 +22,7 @@ $(document).on('ready', function(){
 
     // Passed elements to the component from the Vue instance
     props: {
-      chore: Object,
-      name: String,
-      completed: Boolean
+      chore: Object
     },    
     // Behaviors associated with this component
     methods: {
