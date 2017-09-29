@@ -1,0 +1,2 @@
+module SimpleChoresHelper
+end

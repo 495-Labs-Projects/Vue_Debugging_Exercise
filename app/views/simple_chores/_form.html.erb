@@ -1,0 +1,27 @@
+<%= form_with(model: simple_chore, local: true) do |form| %>
+  <% if simple_chore.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(simple_chore.errors.count, "error") %> prohibited this simple_chore from being saved:</h2>
+
+      <ul>
+      <% simple_chore.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :simple_chore_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :completed %>
+    <%= form.check_box :completed, id: :simple_chore_completed %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

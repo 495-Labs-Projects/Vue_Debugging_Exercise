@@ -1,0 +1,2 @@
+class SimpleChore < ApplicationRecord
+end

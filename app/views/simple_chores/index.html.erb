@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Simple Chores</h1>
+  <div id='chores_list'>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Completed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <keep-alive>
+    <tr is='chore-row' 
+      v-for="chore in chores" 
+      v-bind:chore="chore"
+      :key='chore.id'>  
+    </tr>
+  </keep-alive>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+<%= link_to 'New Simple Chore', new_simple_chore_path %>
+
+<!-- Defining Vue templates to work with components -->
+<script type="text/x-template" id="chore-row">
+    <tr>
+      <td>{{ chore.name }}</td>
+      <td>{{ chore.completed }}</td>
+      <td v-on:click="toggle_complete(chore)">Check</td>
+      <td v-on:click="remove_record(chore)">Delete</td>
+    </tr>
+</script>
