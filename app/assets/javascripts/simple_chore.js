@@ -26,13 +26,9 @@ $(document).on('ready', function(){
       name: String,
       completed: Boolean
     },    
-    beforeDestroy: function(){
-      console.log('bye');
-    },
     // Behaviors associated with this component
     methods: {
       toggle_complete: function (chore){
-        chore['completed'] = !(chore['completed']);
         run_ajax('PATCH', {simple_chore: chore}, '/simple_chores/'.concat(chore['id'], '.js'), function(res){vm.get_chores()});
       },
     }
@@ -47,12 +43,6 @@ $(document).on('ready', function(){
     },
     mounted: function(){
       this.get_chores();
-    },
-      beforeUpdate() {
-    console.log(this.counter) // Logs the counter value every second, before the DOM updates.
-  },
-    beforeDestroy: function(){
-      console.log('bye');
     },
     methods: {
       get_chores: function(){
